@@ -1,0 +1,98 @@
+<!-- @format -->
+
+<% layout("layouts/boilerplate") %>
+
+<div class="row">
+  <h1 class="text-center">Edit Site</h1>
+  <div class="col-md-6 offset-md-3">
+    <form
+      action="/heritages/<%= site._id %>?_method=PUT"
+      method="post"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="heritage[title]"
+          value="<%= site.title %>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="heritage[location]"
+          value="<%= site.location %>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Average Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">$</span>
+          <input
+            type="text"
+            id="price"
+            class="form-control"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="heritage[price]"
+            value="<%= site.price %>"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="heritage[description]"
+          required
+        >
+       <%= site.description %>
+      </textarea
+        >
+        <div class="my-3 custom-file">
+          <label for="image" class="form-label custom-file-label"
+            >Add more Images</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            name="image"
+            multiple
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <% site.images.forEach(function(img,i) { %>
+        <img src="<%= img.thumbnail %>" alt="..." class="img-thumbnail" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%= i %>"
+            name="deleteImages[]"
+            value="<%= img.filename %>"
+          />
+        </div>
+        <label for="image-<%= i %>">Delete</label>
+        <% }) %>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info" type="submit">Update restaurant</button>
+      </div>
+    </form>
+    <a href="/heritages/<%= site._id %>">Back to restaurant</a>
+  </div>
+</div>

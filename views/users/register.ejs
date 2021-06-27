@@ -1,0 +1,59 @@
+<!-- @format -->
+
+<% layout("layouts/boilerplate") %>
+<div class="container justify-content-center align-items-center mb-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div class="card shadow">
+        <img
+          src="https://images.unsplash.com/photo-1583606784124-a0d197092304?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGdpcmxzJTIwZWF0aW5nfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          alt="..."
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Register</h5>
+          <form
+            method="POST"
+            action="/register"
+            class="needs-validation"
+            novalidate
+          >
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
